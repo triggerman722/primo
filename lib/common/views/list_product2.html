@@ -1,0 +1,47 @@
+<div class="col-md12 pull-right"><button class="btn btn-success" ng-click="publish()">Publish</button></div>
+<h1 class="page-header">Product Categories <span class="badge">{{items.length}}</span></h1>
+
+<ul class="nav nav-tabs">
+  <li ng-repeat="category in items" role="presentation" class="dropdown" ng-class="{active: category.active===true}"><a href="#" ng-click="$event.preventDefault(); setcategory(category);">{{category.title}} <span><a class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" href="#" ng-click="$event.preventDefault();"><span class="caret" ></span></a></span></a>
+   <ul class="dropdown-menu">
+	<li><a href="" data-toggle="modal" data-target="#renameModal"><i class="glyphicon glyphicon-pencil"></i> Rename</a></li>
+	<li><a href="" ng-click="$event.preventDefault(); delete(category);"><i class="glyphicon glyphicon-arrow-left"></i> Move Left</a></li>
+	<li><a href="" ng-click="$event.preventDefault(); delete(category);"><i class="glyphicon glyphicon-arrow-right"></i> Move Right</a></li> 
+	<li role="separator" class="divider"></li>
+	<li><a href="" ng-click="$event.preventDefault(); delete(category, category.title);"><i class="glyphicon glyphicon-remove"></i> Delete</a></li>
+    </ul>
+  </li>
+</ul>
+
+<div ng-repeat="item in categorylist">
+	<div class="media">
+		<div class="media-left">
+			<a href="#/" ng-click="$event.preventDefault(); edit(item)">
+				<span style="width:64px;height:64px;font-size:22px; text-align:center" class="media-object alert {{getButtonColor(item.title)}}">{{item.title.charAt(0);}}</span>
+			</a>
+		</div>
+		<div class="media-body">
+			<a href="#" ng-click="$event.preventDefault(); edit(item)"><h4 class="media-heading">{{item.productTitle}}</h4></a>
+			<p>{{item.description}}</p>
+			<a href="#" class="btn btn-danger" ng-click="$event.preventDefault(); delete(item, title)" title="delete"><i class="icon-trash icon-white"></i></a>
+		</div>
+	</div>
+</div>
+<!-- Rename Category Modal -->
+<div class="modal fade" id="renameModal" tabindex="-1" role="dialog" aria-labelledby="renameModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="renameModalLabel">Rename</h4>
+      </div>
+      <div class="modal-body">
+        <input type="text" ng-model="newSymbol" value="{{category.title}}"/>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" ng-click="addSymbol()" data-dismiss="modal">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

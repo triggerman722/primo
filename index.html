@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="meapp">
+<head>
+    <meta charset="utf-8">
+    <title>Mobileruption Mobile Management System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mobileruption Mobile Management System">
+    <meta name="author" content="Greg Martin">
+    <link href="ref/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="ref/mobileruption/css/mobileruption.min.css" rel="stylesheet" />
+    <link href='https://fonts.googleapis.com/css?family=Lilita+One|Candal|Kaushan+Script|Courgette' rel='stylesheet' type='text/css'>	
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#/" style="font-family: 'Lilita One', cursive;">Mobileruption</a>
+
+    </div>
+    <div class="collapse navbar-collapse" id="bs-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#/login"><i class="glyphicon glyphicon-map-marker"></i> Login</a></li>
+        <li><a href="#/join"><i class="glyphicon glyphicon-map-marker"></i> Sign-Up</a></li>
+        <li><a href="#" ng-click="signout()" ng-controller="SecurityCtrl"><i class="glyphicon glyphicon-map-marker"></i> Logout</a></li>
+      </ul>	 
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<div class="container-fluid">
+    <div class="row">
+		<div class="col-sm-3 col-md-2 sidebar" ng-controller="mainController">
+          <ul class="nav nav-sidebar">
+		<li ng-class="{active:isActive('/dashboard')}"><a href="#/dashboard"><i class="glyphicon glyphicon-dashboard"></i> Dashboard</a></li>		
+		<li ng-class="{active:isActive('/attractions')}"><a href="#/attractions"><i class="glyphicon glyphicon-globe"></i> Attractions</a></li>             
+		<li ng-class="{active:isActive('/contacts')}"><a href="#/contacts"><i class="glyphicon glyphicon-earphone"></i> Contacts</a></li>  
+		<li ng-class="{active:isActive('/coupons')}"><a href="#/coupons"><i class="glyphicon glyphicon-piggy-bank"></i> Coupons</a></li>  		
+		<li ng-class="{active:isActive('/faq')}"><a href="#/faq"><i class="glyphicon glyphicon-question-sign"></i> FAQ</a></li>  
+		<li ng-class="{active:isActive('/floorplans')}"><a href="#/floorplans"><i class="glyphicon glyphicon-home"></i> Floorplans</a></li>  					
+		<li ng-class="{active:isActive('/gallery')}"><a href="#/gallery"><i class="glyphicon glyphicon-picture"></i> Gallery</a></li>  		
+		<li ng-class="{active:isActive('/locations')}"><a href="#/locations"><i class="glyphicon glyphicon-map-marker"></i> Locations</a></li>		
+		<li ng-class="{active:isActive('/news')}"><a href="#/news"><i class="glyphicon glyphicon-star"></i> News</a></li>  		
+		<li ng-class="{active:isActive('/products')}"><a href="#/products"><i class="glyphicon glyphicon-tags"></i> Products</a></li>		
+		<li ng-class="{active:isActive('/pushnotifications')}"><a href="#/pushnotifications"><i class="glyphicon glyphicon-send"></i> Push Notifications</a></li>
+		<li ng-class="{active:isActive('/rebates')}"><a href="#/rebates"><i class="glyphicon glyphicon-usd"></i> Rebates</a></li>  
+		<li ng-class="{active:isActive('/recipes')}"><a href="#/recipes"><i class="glyphicon glyphicon-cutlery"></i> Recipes</a></li>  
+		<li ng-class="{active:isActive('/retailers')}"><a href="#/retailers"><i class="glyphicon glyphicon-shopping-cart"></i> Retailers</a></li>			
+		<li ng-class="{active:isActive('/timers')}"><a href="#/timers"><i class="glyphicon glyphicon-time"></i> Timers</a></li>  
+          </ul>
+		</div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" ng-view>
+			
+		</div>
+    </div>
+</div>
+
+<script src="ref/angularjs/bin/angular.min.js"></script>
+<script src="ref/angularjs/bin/angular-resource.min.js"></script>
+<script src="ref/angularjs/bin/angular-route.min.js"></script>
+<script src="ref/jquery/js/jquery.min.js"></script>
+<script src="ref/bootstrap/js/bootstrap.min.js"></script>
+
+<script src="lib/common/app.js"></script>
+</body>
+</html>

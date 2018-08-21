@@ -1,0 +1,21 @@
+[
+  {
+    "title": "Metro #2",
+    "description": "42 Main Street",
+    "latitude":41.20392,
+    "longitude":-81.23456
+  },
+  {
+    "title": "Metro #675",
+    "description": "55 Main Street",
+    "latitude":41.20392,
+    "longitude":-81.23456
+  },
+  {
+    "title": "Metro #666",
+    "description": "55 New Street",
+    "latitude":41.20392,
+    "longitude":-81.23456
+  }
+
+]

@@ -1,0 +1,16 @@
+<div class="col-md12 pull-right"><button class="btn btn-success" ng-click="add(items, 'contacts/add/contact')">Add</button> <button class="btn btn-success" ng-click="publish()">Publish</button></div>
+<h1 class="page-header">Contacts ({{items.length}})</h1>
+<div ng-repeat="item in items">
+	<div class="media">
+		<div class="media-left">
+			<a href="#/" ng-click="$event.preventDefault(); edit(item, items, 'contacts/edit/contact')">
+				<span style="width:64px;height:64px;font-size:22px; text-align:center" class="media-object alert {{getButtonColor(item.title)}}">{{item.title.charAt(0);}}</span>
+			</a>
+		</div>
+		<div class="media-body">
+			<a href="#" ng-click="$event.preventDefault(); edit(item, items, 'contacts/edit/contact')"><h4 class="media-heading">{{item.title}}</h4></a>
+			<p>{{item.description}}</p>
+			<a href="#" class="btn btn-danger" ng-click="$event.preventDefault(); delete(item, items, item.title)" title="delete"><i class="glyphicon glyphicon-remove"></i></a>
+		</div>
+	</div>
+</div>

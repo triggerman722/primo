@@ -1,0 +1,24 @@
+<h1 class="page-header ng-scope">Edit a Phone Number</h1>
+
+<form class="form-horizontal" role="form">
+	<div class="form-group">
+		<label class="control-label col-sm-2" for="distance">Phone Number:</label>
+		<div class="col-sm-6">
+			<input type="text" class="form-control " id="phonenumber" placeholder="4165551212" ng-model="item.phonenumber">
+		</div>
+	</div>	
+	<div class="form-group">
+		<label class="control-label col-sm-2" for="distance">Sub Title:</label>
+		<div class="col-sm-6">
+			<input type="text" class="form-control " id="subtitle" placeholder="Head Office Phone Number" ng-model="item.subtitle">
+		</div>
+	</div>	
+	<div class="form-group">        
+		<div class="col-sm-offset-2 col-sm-6">
+			<button type="submit" class="btn btn-default" ng-click="save(item)">Save</button>
+			<button type="button" class="btn " ng-click="cancel()">Cancel</button>		
+		</div>
+	</div>
+</form>
+
+

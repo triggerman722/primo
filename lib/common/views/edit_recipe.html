@@ -1,0 +1,64 @@
+<h1 class="page-header ng-scope">Edit a Recipe</h1>
+
+<form class="form-horizontal" role="form">
+	<div class="form-group">
+		<label class="control-label col-sm-2" for="distance">Title:</label>
+		<div class="col-sm-6">
+			<input type="text" class="form-control " id="distance" placeholder="5000" ng-model="item.title">
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="control-label col-sm-2" for="unit">Description:</label>
+		<div class="col-sm-6">  
+			<textarea row="20" class="form-control " id="unit" placeholder="km" ng-model="item.description"></textarea>
+		</div>
+	</div>   
+	
+	<div class="form-group">
+		<label class="control-label col-sm-2" for="unit">Small Image:</label>
+		<div class="col-sm-6">          
+			<input type="file" id="exampleInputFile" ng-model="item.smallImage">
+			<p class="help-block">Choose an image to display.</p>
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="control-label col-sm-2" for="unit">Large Image:</label>
+		<div class="col-sm-6">          
+			<input type="file" id="exampleInputFile">
+			<p class="help-block">Choose an image to display.</p>
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="control-label col-sm-2" for="unit">Preparation:</label>
+		<div class="col-sm-6">  
+			<textarea row="20" class="form-control " id="unit" placeholder="km" ng-model="item.preparation"></textarea>
+		</div>
+	</div>  
+	<div class="form-group">
+		<label class="control-label col-sm-2" for="distance">Preparation Time:</label>
+		<div class="col-sm-6">
+			<input type="text" class="form-control " id="distance" placeholder="5000" ng-model="item.preparationtime">
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="control-label col-sm-2" for="distance">Cooking Time:</label>
+		<div class="col-sm-6">
+			<input type="text" class="form-control " id="distance" placeholder="5000" ng-model="item.cooktime">
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="control-label col-sm-2" for="unit">Ingredients:</label>
+		<div class="col-sm-6">  
+			<input type="hidden" class="form-control " id="ingredients" placeholder="5000" ng-model="item.ingredients">		
+			<a href="#" ng-click="$event.preventDefault(); list(item.ingredients, 'recipes/list/ingredients')"><h4 class="media-heading">{{item.title}}</h4></a>
+		</div>
+	</div> 
+	<div class="form-group">        
+		<div class="col-sm-offset-2 col-sm-6">
+			<button type="submit" class="btn btn-default" ng-click="save(item)">Save</button>
+			<button type="button" class="btn " ng-click="cancel()">Cancel</button>		
+		</div>
+	</div>
+</form>
+
+

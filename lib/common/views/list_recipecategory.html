@@ -1,0 +1,35 @@
+<div class="col-md-12">
+	<div class="col-md-9">
+	
+<h1 class="page-header">Recipe Categories ({{items.length}})</h1>
+<div ng-repeat="item in items">
+	<div class="media" style="border-bottom:1px solid #efefef; padding-top:20px;">
+		<div class="media-left">
+			<a href="#/" ng-click="$event.preventDefault(); edit(item, items, 'recipes/edit/')">
+				<span style="width:64px;height:64px;font-size:22px; text-align:center" class="media-object alert {{getButtonColor(item.title)}}">{{item.title.charAt(0);}}</span>
+			</a>
+		</div>
+		<div class="media-body">
+			<a href="#" ng-click="$event.preventDefault(); edit(item, items, 'recipes/edit/')"><h4 class="media-heading">{{item.title}}</h4></a>
+			<p>{{item.description}}</p>
+			<a href="#" class="btn btn-danger pull-right vcenter" ng-click="$event.preventDefault(); delete(item, items, item.title)" title="delete"><i class="glyphicon glyphicon-trash"></i> Delete</a>
+		</div>
+	</div>
+</div>
+</div>
+	<div class="col-md-3">
+		<h1 class="page-header">Actions</h1>
+		<h4 class="page-header">Add</h4>
+		<button class="btn btn-success" ng-click="add(items, 'recipes/add')">Add</button> <br /><br />
+		 <div class="alert alert-info">
+			The <strong>Add</strong> action will open an editor to create a new item.
+		</div>
+
+		<h4 class="page-header">Publish</h4>
+		<button class="btn btn-success" ng-click="publish()">Publish</button> <br /><br />
+		 <div class="alert alert-info">
+			The <strong>Publish</strong> action will result in all recent editings being made live in your mobile app.
+		</div>
+
+	</div>
+</div>

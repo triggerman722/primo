@@ -1,0 +1,158 @@
+	.font-size{
+		base:10px;
+	}
+	.navbar-default {
+		background-color: rgb(109,153,212);
+		border-color: #e7e7e7;	
+	}
+	.navbar-default .navbar-nav>li>a {
+		color:#fefefe;
+	}
+	.navbar-default .navbar-brand {
+		color: #fefefe;
+	}
+
+.nav-tabs > .active > a, .nav-tabs > .active > a:hover { 
+outline: 0;
+color: #555555;
+background-color: #ffffff;
+border: 1px solid #ddd;
+border-bottom-color: transparent;
+cursor: default;
+}
+	/*
+ * Base structure
+ */
+
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+  padding-top: 50px;
+}
+
+
+/*
+ * Global add-ons
+ */
+
+.sub-header {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+/*
+ * Top navigation
+ * Hide default border to remove 1px line.
+ */
+.navbar-fixed-top {
+  border: 0;
+}
+
+/*
+ * Sidebar
+ */
+
+/* Hide for mobile, show later */
+.sidebar {
+  display: none;
+}
+@media (min-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 51px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    background-color: #f5f5f5;
+    border-right: 1px solid #eee;
+  }
+}
+
+/* Sidebar navigation */
+.nav-sidebar {
+  margin-right: -21px; /* 20px padding + 1px border */
+  margin-bottom: 20px;
+  margin-left: -20px;
+}
+.nav-sidebar > li > a {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+.nav-sidebar > .active > a,
+.nav-sidebar > .active > a:hover,
+.nav-sidebar > .active > a:focus {
+  color: #fff;
+  background-color: #428bca;
+}
+
+
+/*
+ * Main content
+ */
+
+.main {
+   padding: 20px;
+}
+@media (min-width: 768px) {
+  .main {
+	padding-right: 40px;
+	padding-left: 40px;
+  }
+}
+.main .page-header {
+  margin-top: 0;
+}
+
+
+/*
+ * Placeholder dashboard ideas
+ */
+
+.placeholders {
+  margin-bottom: 30px;
+  text-align: center;
+}
+.placeholders h4 {
+  margin-bottom: 0;
+}
+.placeholder {
+  margin-bottom: 20px;
+}
+.placeholder img {
+  display: inline-block;
+  border-radius: 50%;
+}
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+.media:hover .media {
+	background-color:efefef;
+}
+
+/* New Alert Schemes */
+
+.alert-sunset {
+    background-color: #f9e6e3;
+    border-color: #d5b5d0;
+    color: #b58780;
+}
+.alert-mustard {
+    background-color: #f7e2b5;
+    border-color: #d1b67b;
+    color: #ad8e4a;
+}
+.alert-baby {
+    background-color: #b2d3e5;
+    border-color: #83b1c9;
+    color: #5488a3;
+}
+.alert-cocoa {
+    background-color: #d0c7bd;
+    border-color: #ada092;
+    color: #8c7c6a;
+}

@@ -1,0 +1,16 @@
+<div class="col-md12 pull-right"><button class="btn btn-success" ng-click="add(items, 'contacts/add/postaladdress')">Add</button> <button class="btn btn-success" ng-click="publish()">Publish</button></div>
+<h1 class="page-header">Postal Addresses ({{items.length}})</h1>
+<div ng-repeat="item in items">
+	<div class="media">
+		<div class="media-left">
+			<a href="#/" ng-click="$event.preventDefault(); edit(item, items, 'contacts/edit/postaladdress')">
+				<span style="width:64px;height:64px;font-size:22px; text-align:center" class="media-object alert {{getButtonColor(item.subtitle)}}">{{item.subtitle.charAt(0);}}</span>
+			</a>
+		</div>
+		<div class="media-body">
+			<a href="#" ng-click="$event.preventDefault(); edit(item, items, 'contacts/edit/postaladdress')"><h4 class="media-heading">{{item.subtitle}}</h4></a>
+			
+			<a href="#" class="btn btn-danger" ng-click="$event.preventDefault(); delete(item, items, item.subtitle)" title="delete"><i class="glyphicon glyphicon-remove"></i></a>
+		</div>
+	</div>
+</div>
