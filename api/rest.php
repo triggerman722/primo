@@ -86,7 +86,8 @@ if ($resource_name == "changepassword")
 	$tvaBody = file_get_contents('php://input');
 	$jsonArray = json_decode($tvaBody, true);
 
-	$username = $jsonArray['username'];
+	//$username = $jsonArray['username'];
+        $username = $_SESSION['username'];
 	$password = $jsonArray['password'];
 	$newpassword = $jsonArray['newpassword'];
 	$confirm = $jsonArray['confirm'];
