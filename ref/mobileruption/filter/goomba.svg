@@ -1,0 +1,7 @@
+<svg>
+  <defs>
+    <filter id="filter" x="0" y="0">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="15" />
+    </filter>
+  </defs>
+</svg>

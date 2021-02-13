@@ -1,8 +1,6 @@
 <?php
 
 session_start();
-//print($_SERVER['REQUEST_URI']);
-//$request = explode('/', trim($_SERVER['REQUEST_URI'], '/'));
 $request = explode('/', trim($_REQUEST['path'], '/'));
 $resource_name = strtolower($request[1]);
 $resource_id="";
@@ -86,8 +84,17 @@ if ($resource_name == "changepassword")
 	$tvaBody = file_get_contents('php://input');
 	$jsonArray = json_decode($tvaBody, true);
 
+<<<<<<< HEAD
 	//$username = $jsonArray['username'];
         $username = $_SESSION['username'];
+=======
+<<<<<<< HEAD
+        $username = $_SESSION['username'];
+=======
+	//$username = $jsonArray['username'];
+        $username = $_SESSION['username']);
+>>>>>>> 911a93ef9f159d100ff0dbf9898e1c76dc5c2802
+>>>>>>> b9ac180ef72b2837c150faf7d5e5a4753f0932dc
 	$password = $jsonArray['password'];
 	$newpassword = $jsonArray['newpassword'];
 	$confirm = $jsonArray['confirm'];
@@ -128,8 +135,6 @@ if ($resource_name == "publish")
 	die();
 }
 
-
-$content = "";
 switch ($http_verb)
 {	
 	case "get":

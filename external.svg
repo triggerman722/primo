@@ -1,0 +1,15 @@
+<svg
+   xmlns="http://www.w3.org/2000/svg"
+>
+  <defs>
+    <radialGradient id="grad"
+      cx="50%" cy="50%" r="50%" fx="50%" fy="80%">
+      <stop offset="0%" stop-color="#fff" stop-opacity="1" />
+      <stop offset="100%" stop-color="#000" stop-opacity="1" />
+    </radialGradient>
+  </defs>
+<filter id="filter">
+      <feComposite in="fillpaint" in2="grad" operator="over" result="comp"/>
+
+    </filter>
+</svg>
