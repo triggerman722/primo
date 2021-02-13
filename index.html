@@ -2,9 +2,9 @@
 <html lang="en" ng-app="meapp">
 <head>
     <meta charset="utf-8">
-    <title>Mobileruption Mobile Management System</title>
+    <title>Boardway System</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Mobileruption Mobile Management System">
+    <meta name="description" content="Boardway System">
     <meta name="author" content="Greg Martin">
     <link href="ref/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="ref/mobileruption/css/mobileruption.min.css" rel="stylesheet" />
@@ -20,49 +20,111 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#/" style="font-family: 'Lilita One', cursive;">Mobileruption</a>
+      <a class="navbar-brand" href="#/" style="font-family: 'Kaushan Script', cursive;">Boardway</a>
 
     </div>
     <div class="collapse navbar-collapse" id="bs-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#/login"><i class="glyphicon glyphicon-map-marker"></i> Login</a></li>
-        <li><a href="#/join"><i class="glyphicon glyphicon-map-marker"></i> Sign-Up</a></li>
-        <li><a href="#" ng-click="signout()" ng-controller="SecurityCtrl"><i class="glyphicon glyphicon-map-marker"></i> Logout</a></li>
+      <ul class="nav navbar-nav navbar-right" ng-controller="SecurityCtrl">
+        <li><a href="#" ng-click="login();"><i class="glyphicon glyphicon-map-marker"></i> Login</a></li>
+        <li><a href="#" ng-click="join()"><i class="glyphicon glyphicon-map-marker"></i> Join</a></li>
+        <li><a href="#" ng-click="logout()" ng-controller="SecurityCtrl"><i class="glyphicon glyphicon-map-marker"></i> Logout</a></li>
       </ul>	 
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+    </div>
+  </div>
 </nav>
-<div class="container-fluid">
+<div class="container-fluid" ng-controller="ItemsCtrl">
     <div class="row">
-		<div class="col-sm-3 col-md-2 sidebar" ng-controller="mainController">
-          <ul class="nav nav-sidebar">
-		<li ng-class="{active:isActive('/dashboard')}"><a href="#/dashboard"><i class="glyphicon glyphicon-dashboard"></i> Dashboard</a></li>		
-		<li ng-class="{active:isActive('/attractions')}"><a href="#/attractions"><i class="glyphicon glyphicon-globe"></i> Attractions</a></li>             
-		<li ng-class="{active:isActive('/contacts')}"><a href="#/contacts"><i class="glyphicon glyphicon-earphone"></i> Contacts</a></li>  
-		<li ng-class="{active:isActive('/coupons')}"><a href="#/coupons"><i class="glyphicon glyphicon-piggy-bank"></i> Coupons</a></li>  		
-		<li ng-class="{active:isActive('/faq')}"><a href="#/faq"><i class="glyphicon glyphicon-question-sign"></i> FAQ</a></li>  
-		<li ng-class="{active:isActive('/floorplans')}"><a href="#/floorplans"><i class="glyphicon glyphicon-home"></i> Floorplans</a></li>  					
-		<li ng-class="{active:isActive('/gallery')}"><a href="#/gallery"><i class="glyphicon glyphicon-picture"></i> Gallery</a></li>  		
-		<li ng-class="{active:isActive('/locations')}"><a href="#/locations"><i class="glyphicon glyphicon-map-marker"></i> Locations</a></li>		
-		<li ng-class="{active:isActive('/news')}"><a href="#/news"><i class="glyphicon glyphicon-star"></i> News</a></li>  		
-		<li ng-class="{active:isActive('/products')}"><a href="#/products"><i class="glyphicon glyphicon-tags"></i> Products</a></li>		
-		<li ng-class="{active:isActive('/pushnotifications')}"><a href="#/pushnotifications"><i class="glyphicon glyphicon-send"></i> Push Notifications</a></li>
-		<li ng-class="{active:isActive('/rebates')}"><a href="#/rebates"><i class="glyphicon glyphicon-usd"></i> Rebates</a></li>  
-		<li ng-class="{active:isActive('/recipes')}"><a href="#/recipes"><i class="glyphicon glyphicon-cutlery"></i> Recipes</a></li>  
-		<li ng-class="{active:isActive('/retailers')}"><a href="#/retailers"><i class="glyphicon glyphicon-shopping-cart"></i> Retailers</a></li>			
-		<li ng-class="{active:isActive('/timers')}"><a href="#/timers"><i class="glyphicon glyphicon-time"></i> Timers</a></li>  
-          </ul>
-		</div>
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" ng-view>
-			
-		</div>
+        <div class="col-sm-1" style="border-right:1px solid #cecece;">
+            <div ng-class="{sideactive:activeview===0}" ng-click="activeview=0; query('rooms');"><i class="glyphicon glyphicon-comment p-4"></i></div>
+            <div ng-class="{sideactive:activeview===1}" ng-click="activeview=1"><i class="glyphicon glyphicon-search"></i></div>
+            <div ng-class="{sideactive:activeview===2}" ng-click="activeview=2"><i class="glyphicon glyphicon-user"></i></div>
+        </div>
+        <div class="col-sm-3">
+            <div ng-show="activeview===0">
+                <div ng-repeat="item in items" >
+                    {{item.title}}
+                </div>
+
+            </div>
+            <div ng-show="activeview===1">List of search</div>
+            <div ng-show="activeview===2">List of people</div>
+        </div>
+        <div class="col-sm-7 main" ng-view>
+
+	</div>
+        <div class="col-sm-1">
+        </div>
     </div>
 </div>
 
+ <!-- Modal -->
+  <div class="modal fade" id="loginmodal" role="dialog" ng-controller="SecurityCtrl">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 style="color:red;"><span class="glyphicon glyphicon-lock"></span> Login</h4>
+        </div>
+        <div class="modal-body">
+          <form role="form">
+            <div class="form-group">
+              <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
+              <input type="text" ng-model="credential.username" class="form-control" id="usrname" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+              <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
+              <input type="password" ng-model="credential.password" class="form-control" id="psw" placeholder="Enter password">
+            </div>
+            <div class="checkbox">
+              <label><input type="checkbox" value="" checked>Remember me</label>
+            </div>
+            <button type="submit" ng-click="login();" class="btn btn-default btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Login</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-default btn-default pull-left" ><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+          <p>Not a member? <a href="#" ng-click="showjoin();">Join</a></p>
+          <p>Forgot <a href="#" ng-click="showforgotpassword();">Password?</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- Join -->
+  <div class="modal fade" id="joinmodal" role="dialog" ng-controller="SecurityCtrl">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 style="color:green;"><span class="glyphicon glyphicon-unlock"></span> Join</h4>
+        </div>
+        <div class="modal-body">
+          <form role="form">
+            <div class="form-group">
+              <label for="joinusrname"><span class="glyphicon glyphicon-user"></span> Username</label>
+              <input type="text" ng-model="credential.username" class="form-control" id="joinusrname" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+              <label for="joinpsw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
+              <input type="password" ng-model="credential.password" class="form-control" id="joinpsw" placeholder="Enter password">
+            </div>
+            <button type="submit" ng-click="join();" class="btn btn-default btn-success btn-block"><span class="glyphicon glyphicon-on"></span> Join</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-default btn-default pull-left" ><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+          <p>Already a member? <a href="#" ng-click="showlogin();">Login</a></p>
+          <p>Forgot <a href="#" ng-click="showforgotpassword();">Password?</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script src="ref/jquery/js/jquery.min.js"></script>
 <script src="ref/angularjs/bin/angular.min.js"></script>
 <script src="ref/angularjs/bin/angular-resource.min.js"></script>
 <script src="ref/angularjs/bin/angular-route.min.js"></script>
-<script src="ref/jquery/js/jquery.min.js"></script>
 <script src="ref/bootstrap/js/bootstrap.min.js"></script>
 
 <script src="lib/common/app.js"></script>
